@@ -1,0 +1,44 @@
+ITVENTAS - VERSION AMPLIADA SOBRE LA CARPETA ORIGINAL
+
+Esta entrega conserva la carpeta y los archivos de ITVentas_sistema_funcional_final
+y agrega los módulos faltantes. No borres tu versión anterior: guarda una copia.
+
+INSTALACIÓN:
+1. Descomprime el ZIP.
+2. Copia la carpeta "sistema MVC" dentro de C:\xampp\htdocs.
+3. En XAMPP enciende Apache y MySQL.
+4. Abre http://localhost/phpmyadmin
+5. Selecciona Importar y carga sistema MVC/database/itventas.sql.
+   El SQL conserva las tablas categoria y articulo y crea las tablas adicionales.
+6. Revisa sistema MVC/config/global.php. Por defecto:
+   servidor localhost, base "sistema MVC", usuario root, contraseña vacía.
+   Cambia estos datos si tu instalación usa otra configuración.
+7. Abre:
+   http://localhost:8080/sistema%20MVC/vistas/escritorio.php
+
+MÓDULOS AGREGADOS:
+- Escritorio con indicadores de artículos, categorías, proveedores, clientes,
+  compras, ventas, stock, total de compras y total de ventas.
+- Proveedores y clientes: alta, edición, listado y activar/desactivar.
+- Usuarios: alta, edición, listado y activación; contraseñas con password_hash.
+- Permisos: mantenimiento de permisos por rol.
+- Ingresos: registra una línea de artículo por operación y aumenta stock.
+- Ventas: registra una línea de artículo por operación, valida stock y lo descuenta.
+- Consulta de compras y consulta de ventas por rango de fechas.
+- Ayuda y Acerca de IT.
+
+IMPORTANTE SOBRE EL ALCANCE:
+- Ingresos y ventas admiten UN artículo por operación en esta versión.
+- Los permisos se guardan por rol, pero aún no están aplicados como control de acceso
+  a cada página. No uses esta versión como sistema expuesto a Internet sin añadir
+  autenticación, autorización, CSRF y endurecimiento de seguridad.
+- No implementa facturación electrónica SUNAT ni emisión de comprobantes oficiales.
+- La lógica de inventario usa transacciones MySQL. Requiere tablas InnoDB.
+- Para registrar una compra: primero registra el proveedor y el artículo.
+- Para registrar una venta: primero registra el cliente y el artículo.
+- En formularios de ingresos/ventas se solicitan los IDs numéricos de proveedor,
+  cliente y artículo. Puedes consultarlos en los listados y en phpMyAdmin.
+
+USUARIO:
+No se crea automáticamente un usuario de acceso. El módulo Usuarios administra
+registros, pero no hay inicio de sesión implementado en esta versión.
